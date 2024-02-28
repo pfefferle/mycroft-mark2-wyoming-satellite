@@ -74,7 +74,7 @@ plughw:CARD=sndrpisimplecar,DEV=0
     Hardware device with all software conversions
 ```
 
-But for the Mark II you should simply use the `default`.
+Just use the `default` settings for the Mark II.
 
 Record a 5 second sample from your chosen microphone:
 
