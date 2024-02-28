@@ -1,7 +1,6 @@
 # Tutorial with Mycroft Mark II
 
-This tutorial should work for almost any Raspberry Pi and USB microphone. Audio enhancements and local wake word detection may require a 64-bit operating system, however.
-Use your Mycroft Mark II (or Dev Kit) as Wyoming Satellite for Home Assistant.
+This tutorial should work for your Mycroft Mark II or Dev Kit. Audio enhancements and local wake word detection may require a 64-bit operating system, however.
 
 **This is a draft that might be merged into the [Wyoming Protocol repo](https://github.com/rhasspy/wyoming-satellite/tree/master/docs).**
 
