@@ -178,6 +178,7 @@ If needed, disable and stop the service with:
 
 ``` sh
 sudo systemctl disable --now wyoming-satellite.service
+```
 
 ## Audio Enhancements
 
