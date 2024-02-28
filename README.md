@@ -128,3 +128,53 @@ You can set `--name <NAME>` to whatever you want, but it should stay the same ev
 In Home Assistant, check the "Devices & services" section in Settings. After some time, you should see your satellite show up as "Discovered" (Wyoming Protocol). Click the "Configure" button and "Submit". Choose the area that your satellite is located, and click "Finish".
 
 Your satellite should say "Streaming audio", and you can use the wake word of your preferred pipeline.
+
+## Create Services
+
+You can run wyoming-satellite as a systemd service by first creating a service file:
+
+``` sh
+sudo systemctl edit --force --full wyoming-satellite.service
+```
+
+Paste in the following template, and change both `/home/pi` and the `script/run` arguments to match your set up:
+
+```text
+[Unit]
+Description=Wyoming Satellite
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/home/pi/wyoming-satellite/script/run \
+  --name 'my satellite' \
+  --uri 'tcp://0.0.0.0:10700' \
+  --mic-command 'arecord -r 16000 -c 1 -f S16_LE -t raw' \
+  --snd-command 'aplay -r 22050 -c 1 -f S16_LE -t raw' \
+WorkingDirectory=/home/pi/wyoming-satellite
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=default.target
+```
+
+Save the file and exit your editor. Next, enable the service to start at boot and run it:
+
+``` sh
+sudo systemctl enable --now wyoming-satellite.service
+```
+
+(you may need to hit CTRL+C to get back to a shell prompt)
+
+With the service running, you can view logs in real-time with:
+
+``` sh
+journalctl -u wyoming-satellite.service -f
+```
+
+If needed, disable and stop the service with:
+
+``` sh
+sudo systemctl disable --now wyoming-satellite.service
