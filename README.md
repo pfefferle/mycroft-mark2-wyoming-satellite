@@ -10,7 +10,7 @@ This tutorial should work for your [Mycroft Mark II](https://mycroft-ai.gitbook.
 
 Create a voice satellite using a Mycroft Mark II (or Neon OVOS Mycroft AI Mark II).
 
-*(You can still order a Mark II at the [Neon AI shop](https://neon.ai/PurchaseHardware)https://neon.ai/PurchaseHardware)*
+*(You can still order a Mark II at the [Neon AI shop](https://neon.ai/PurchaseHardware))*
 
 ## Install OS
 
