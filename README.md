@@ -1,5 +1,7 @@
 # Tutorial with Mycroft Mark II
 
+Create a voice satellite using a Mycroft Mark II (or Neon OVOS Mycroft AI Mark II).
+
 This tutorial should work for your [Mycroft Mark II](https://mycroft-ai.gitbook.io/mark-ii/) and the [Dev Kit](https://mycroft-ai.gitbook.io/docs/using-mycroft-ai/get-mycroft/mark-ii/mark-ii-dev-kit). Audio enhancements and local wake word detection may require a 64-bit operating system, however.
 
 ---
@@ -7,8 +9,6 @@ This tutorial should work for your [Mycroft Mark II](https://mycroft-ai.gitbook.
 **This is a draft that might be merged into the [Wyoming Protocol repo](https://github.com/rhasspy/wyoming-satellite/tree/master/docs).**
 
 ---
-
-Create a voice satellite using a Mycroft Mark II (or Neon OVOS Mycroft AI Mark II).
 
 *(You can still order a Mark II at the [Neon AI shop](https://neon.ai/PurchaseHardware))*
 
