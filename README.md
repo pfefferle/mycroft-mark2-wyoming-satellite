@@ -178,3 +178,95 @@ If needed, disable and stop the service with:
 
 ``` sh
 sudo systemctl disable --now wyoming-satellite.service
+
+## Audio Enhancements
+
+See the "[Tutorial with 2mic HAT](https://github.com/rhasspy/wyoming-satellite/blob/master/docs/tutorial_2mic.md#audio-enhancements)".
+
+## Local Wake Word Detection
+
+Install the necessary system dependencies:
+
+```sh
+sudo apt-get update
+sudo apt-get install --no-install-recommends  \
+  libopenblas-dev
+```
+
+From your home directory, install the openWakeWord Wyoming service:
+
+```sh
+git clone https://github.com/rhasspy/wyoming-openwakeword.git
+cd wyoming-openwakeword
+script/setup
+```
+
+Create a systemd service for it:
+
+``` sh
+sudo systemctl edit --force --full wyoming-openwakeword.service
+```
+
+Paste in the following template, and change both `/home/pi` and the `script/run` arguments to match your set up:
+
+```text
+[Unit]
+Description=Wyoming openWakeWord
+
+[Service]
+Type=simple
+ExecStart=/home/pi/wyoming-openwakeword/script/run --uri 'tcp://127.0.0.1:10400'
+WorkingDirectory=/home/pi/wyoming-openwakeword
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=default.target
+```
+
+Save the file and exit your editor.
+
+You can now update your satellite service:
+
+``` sh
+sudo systemctl edit --force --full wyoming-satellite.service
+```
+
+Update just the parts below:
+
+```text
+[Unit]
+...
+Requires=wyoming-openwakeword.service
+
+[Service]
+...
+ExecStart=/home/pi/wyoming-satellite/script/run ... --wake-uri 'tcp://127.0.0.1:10400' --wake-word-name 'ok_nabu'
+...
+
+[Install]
+...
+```
+
+Reload and restart the satellite service:
+
+``` sh
+sudo systemctl daemon-reload
+sudo systemctl restart wyoming-satellite.service
+```
+
+You should see the wake service get automatically loaded:
+
+``` sh
+sudo systemctl status wyoming-satellite.service wyoming-openwakeword.service
+```
+
+They should all be "active (running)" and green.
+
+Test out your satellite by saying "ok, nabu" and a voice command. Use `journalctl` to check the logs of services for errors:
+
+``` sh
+journalctl -u wyoming-openwakeword.service -f
+```
+
+Make sure to run `sudo systemctl daemon-reload` every time you make changes to the service.
