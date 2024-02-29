@@ -14,11 +14,33 @@ This tutorial should work for your [Mycroft Mark II](https://mycroft-ai.gitbook.
 
 ## Install OS
 
-TPD
+The Mark II comes with a specialized [SJ201 HAT](https://mycroft-ai.gitbook.io/mark-ii/advanced/hardware-features).
+
+> The SJ201 is the only voice development board that includes Audio input DSP, LEDs, buttons, and high end amplified audio output for the Raspberry Pi. This makes it the most customizable Voice Assistant hardware platform that is ready to use out of the box.
+
+For optimal performance and compatibility with the hardware components of the Mark II, it is advisable to use the official images provided by Mycroft. These images typically include essential drivers, configurations, and software components necessary for seamless integration.
+
+The Sandbox Images can be found here: https://mycroft-ai.gitbook.io/mark-ii/advanced/sandbox-images
+
+The most basic image, that is based on Raspberry Pi OS and comes with all needed drivers is the "Mark II Hardware Sandbox":
+
+> If you want to start a project from scratch, this comes with all of the drivers and a Hardware Abstraction Layer (HAL) needed to utilize the Mark II hardware, but no other Mycroft software. Perfect for those wanting to utilize the hardware in their own ways.
+
+The best starting point might be this repo: https://github.com/MycroftAI/mark-ii-sandbox
+
+Or you could also try to install these drivers on a Raspberry Pi OS: https://github.com/MycroftAI/mark-ii-product/tree/main/mark-ii-raspberrypi
+
+Because the Images are no longer available I tried to find the storage using archive.org and it really seems to be archived:
+
+https://web.archive.org/web/20230205093158/https://myc200.fra1.digitaloceanspaces.com/pub/releases/sandbox/base/20221108-mark2_base.img.gz
+
+(Maybe @synesthesiam can help with a simpler solution).
+
+Follow instructions to install a custom image using the *Raspberry Pi Imager*. Under "Choose OS", pick "Use custom" and load the downloaded "20221108-mark2_base.img.gz" image.
 
 ## Install Software
 
-After flashing and booting the satellite, connect to it over SSH using the username/password you configured during flashing.
+After flashing and booting the satellite, connect to it over SSH using the default username and password: `pi:raspberry`.
 
 **On the satellite**, make sure system dependencies are installed:
 
