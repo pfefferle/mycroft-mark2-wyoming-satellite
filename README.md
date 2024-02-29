@@ -36,7 +36,7 @@ https://web.archive.org/web/20230205093158/https://myc200.fra1.digitaloceanspace
 
 (Maybe @synesthesiam can help with a simpler solution)
 
-Follow instructions to install a custom image using the *Raspberry Pi Imager*. Under "Choose OS", pick "Use custom" and load the downloaded "20221108-mark2_base.img.gz" image.
+Follow instructions to install a custom image using the *Raspberry Pi Imager*. Under "Choose OS", pick "Use custom" and load the downloaded `20221108-mark2_base.img.gz` image.
 
 ## Install Software
 
