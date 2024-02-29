@@ -30,11 +30,11 @@ The best starting point might be this repo: https://github.com/MycroftAI/mark-ii
 
 Or you could also try to install these drivers on a Raspberry Pi OS: https://github.com/MycroftAI/mark-ii-product/tree/main/mark-ii-raspberrypi
 
-Because the Images are no longer available I tried to find the storage using archive.org and it really seems to be archived:
+Since the images are no longer accessible, I attempted to locate the storage by using archive.org, and it appears to be successfully archived:
 
 https://web.archive.org/web/20230205093158/https://myc200.fra1.digitaloceanspaces.com/pub/releases/sandbox/base/20221108-mark2_base.img.gz
 
-(Maybe @synesthesiam can help with a simpler solution).
+(Maybe @synesthesiam can help with a simpler solution)
 
 Follow instructions to install a custom image using the *Raspberry Pi Imager*. Under "Choose OS", pick "Use custom" and load the downloaded "20221108-mark2_base.img.gz" image.
 
